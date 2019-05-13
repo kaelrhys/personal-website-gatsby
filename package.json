@@ -33,8 +33,6 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "now-dev": "gatsby develop -p $PORT",
-    "now-build": "npm run build",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",

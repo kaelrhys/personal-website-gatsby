@@ -1,2 +1,1 @@
-CSSRESET: https://github.com/sergeysova/styled-normalize
-Grid: https://github.com/LoicMahieu/react-styled-flexboxgrid
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5d53ea31-0d15-414b-91e8-6896367a8723/deploy-status)](https://app.netlify.com/sites/cranky-perlman-511fcc/deploys)
