@@ -19,7 +19,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-styled-flexboxgrid": "^3.1.0",
+    "styled-breakpoints": "^6.6.3",
     "styled-components": "^4.2.0",
     "styled-normalize": "^8.0.6"
   },

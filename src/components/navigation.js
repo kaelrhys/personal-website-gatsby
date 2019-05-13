@@ -1,13 +1,20 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import styled from "styled-components"
+
+
+const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  width: 100%;  
+`;
+
 
 const Navigation = ({ siteTitle }) => (
-  <nav>
+  <Nav>
     <ul>
       <li>Nav to go here</li>
     </ul>
-  </nav>
+  </Nav>
 )
 
 export default Navigation

@@ -13,17 +13,19 @@ const theme = {
     },
   
     fontSizes: {
-      xxsmall: '12px',
-      xsmall: '13px',
-      small: '14px',
-      medium: '16px',
-      large: '18px',
-      xlarge: '20px',
-      xxlarge: '22px',
-      h3: '32px',
+      body: '17px',
     },
 
+    breakpoints: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+    },
+    
   };
+
+
 
   
   export default theme;

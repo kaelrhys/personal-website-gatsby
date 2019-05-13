@@ -1,9 +1,9 @@
 
 import { createGlobalStyle } from 'styled-components';
 import * as fontFamilies from './fonts';
-import theme from './theme';
 import { normalize } from 'styled-normalize';
-const { colors, fontSizes, fonts } = theme;
+import theme from './theme';
+const { colors, fonts, fontSizes } = theme;
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${fonts.body};
+    font-size: ${fontSizes.body};
     color: ${colors.navy};
   }
 
