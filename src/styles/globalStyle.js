@@ -2,12 +2,10 @@
 import { createGlobalStyle } from 'styled-components';
 import * as fontFamilies from './fonts';
 import { normalize } from 'styled-normalize';
-import theme from './theme';
-const { colors, fonts, fontSizes } = theme;
-
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
+  
   @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700');
   @font-face {
     font-family: 'Blackout';
@@ -19,17 +17,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${fonts.body};
-    font-size: ${fontSizes.body};
-    color: ${colors.navy};
+    font-family: ${props => props.theme.fonts.body};
+    font-size: ${props => props.theme.fontSizes.body};
+    color: ${props => props.theme.colors.navy};
   }
 
   a {
-    color: ${colors.blue};
+    color: ${props => props.theme.colors.blue};
   }
 
   h1, h2, h3 {
-    font-family: ${fonts.headings};
+    font-family: ${props => props.theme.fonts.headings};
     text-transform: Uppercase;
     font-weight: 800;
     margin: 0;

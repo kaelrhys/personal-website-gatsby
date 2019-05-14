@@ -8,11 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { GlobalStyle } from '../styles/globalStyle';
+import { GlobalStyle } from '@styles/globalStyle';
 // import Navigation from "./navigation"
 import Footer from "./footer"
 
-import theme from '../styles/theme';
+import theme from '@styles/theme';
 import { ThemeProvider } from 'styled-components';
 
 const Layout = ({ children }) => (
