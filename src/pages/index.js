@@ -4,7 +4,7 @@ import Image from "@components/image"
 import SEO from "@components/seo"
 import styled from "styled-components"
 import { up } from 'styled-breakpoints';
-import ButtonLink from "@components/Button";
+import ButtonLink from "@components/button";
 
 const Heading = styled.h1`
   font-size: 100px;
