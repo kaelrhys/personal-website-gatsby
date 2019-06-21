@@ -1,3 +1,4 @@
+
 module.exports = {
   siteMetadata: {
     title: `Kael Rhys | Web Designer & Developer`,
@@ -28,6 +29,23 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-modal-routing`,
+      options: {
+        // Object of props that will be passed to the react-modal container
+        // See http://reactcommunity.org/react-modal/#usage
+        modalProps: {
+          shouldCloseOnEsc: true,
+          style: {
+            overlay: {
+              backgroundColor: `rgba(0, 0, 0, 0.75)`,
+            },
+            content: {
+            }
+          },
+        },
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

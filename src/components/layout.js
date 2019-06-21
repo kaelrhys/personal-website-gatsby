@@ -32,7 +32,7 @@ const Layout = ({ children }) => (
             <GlobalStyle />
             {/* <Navigation /> */}
             <main>{children}</main>
-            <Footer />
+            {/* <Footer /> */}
         </>
       )}
     />

@@ -5,6 +5,7 @@ import SEO from "@components/seo"
 import styled from "styled-components"
 import { up } from 'styled-breakpoints';
 import ButtonLink from "@components/button";
+import { Link } from 'gatsby'
 
 const Heading = styled.h1`
   font-size: 100px;
@@ -104,18 +105,19 @@ const IndexPage = () => (
             <span>Hello I'm,</span>
             <Heading>Kael <HeadingHide>Rhys</HeadingHide></Heading>
             <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels professionally for 9+ years and I endeavour to create simple, unique, high converting user experiences. I take on all sizes of projects, from web design and build, to product, branding and system design. I’ve worked at creative agencies, startups, and large orgs' in the UK, and I’ve been lucky to have worked with some great minds. I’m now on a new path and have taken a jump down under, and I’m hoping to find new exciting opportunities.</IntroText>
-            <ButtonLink href="https://kaelrhys.typeform.com/to/QhEZYl">Get in touch</ButtonLink>
+            <ButtonLink href="https://kaelrhys.typeform.com/to/QhEZYl" state={{ modal: true }}>Get in touch</ButtonLink>
+            <Link to="/projects/liberty-marketing/" >Test Modal</Link>
           </Intro>
           <IntroImageContainer>
             <IntroImage>
               <Image />
             </IntroImage>
           </IntroImageContainer>
+          
         </IntroContainer>
       </Container>
     </Section>
 
-    {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
 )
 
