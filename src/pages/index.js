@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import Layout from "@components/layout"
 import Image from "@components/image"
 import SEO from "@components/seo"
@@ -7,9 +8,11 @@ import { up } from 'styled-breakpoints';
 import ButtonLink from "@components/button";
 import { Link } from 'gatsby'
 
+import { Box, Flex } from '@rebass/grid'
+
+
 const Heading = styled.h1`
   font-size: 100px;
-  
 `;
 
 const HeadingHide = styled.span`
@@ -19,24 +22,16 @@ const HeadingHide = styled.span`
   }
 `;
 
-
-const Section = styled.section`
-  width: 100%;
-`;
-
-const Container = styled.div`
+const Container = styled(Box)`
   max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-  ${up('md')} {
-    padding: 0 100px;
-  }
-`;
+`
+Container.defaultProps = {
+  mx: 'auto'
+}
 
-const IntroContainer = styled.div`
-  width: 100%;
+
+const IntroContainer = styled(Flex)`
   min-height: 100vh;
-  display: flex;
   align-content: center;
   flex-wrap: wrap;
 `;
@@ -94,31 +89,59 @@ const IntroImage = styled.div`
   box-shadow: 20px 20px 0px 0px ${props => props.theme.colors.navy};
 `;
 
-const IndexPage = () => (
+
+const IndexPage = ({ data: { posts } }) => {
+
+  return (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-
-    <Section>
+    <Flex>
       <Container>
-        <IntroContainer>
+        <IntroContainer py={150}>
           <Intro>
             <span>Hello I'm,</span>
             <Heading>Kael <HeadingHide>Rhys</HeadingHide></Heading>
             <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels professionally for 9+ years and I endeavour to create simple, unique, high converting user experiences. I take on all sizes of projects, from web design and build, to product, branding and system design. I’ve worked at creative agencies, startups, and large orgs' in the UK, and I’ve been lucky to have worked with some great minds. I’m now on a new path and have taken a jump down under, and I’m hoping to find new exciting opportunities.</IntroText>
             <ButtonLink href="https://kaelrhys.typeform.com/to/QhEZYl" state={{ modal: true }}>Get in touch</ButtonLink>
             <Link to="/projects/liberty-marketing/" >Test Modal</Link>
+
+            {posts.nodes.map(post => (
+              <li key={post.uid}>
+                <Link to={ "/post/" + post.uid }>{post.data.title.text}</Link>
+              </li>
+            ))}
+              
           </Intro>
           <IntroImageContainer>
             <IntroImage>
               <Image />
             </IntroImage>
           </IntroImageContainer>
-          
+            
         </IntroContainer>
       </Container>
-    </Section>
-
+    </Flex>
   </Layout>
-)
+  )
+}
 
 export default IndexPage
+
+
+export const pageQuery = graphql`
+  query { 
+    posts: allPrismicPost {
+      nodes {
+        id
+        uid
+        data {
+          date
+          title {
+            html
+            text
+          }
+        }
+      }
+    }
+  }
+`

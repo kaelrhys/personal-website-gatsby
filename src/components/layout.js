@@ -30,9 +30,7 @@ const Layout = ({ children }) => (
       render={data => (
         <>
             <GlobalStyle />
-            {/* <Navigation /> */}
             <main>{children}</main>
-            {/* <Footer /> */}
         </>
       )}
     />
