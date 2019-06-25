@@ -4,10 +4,8 @@ import Layout from "./layout"
 import { Link, ModalRoutingContext } from 'gatsby-plugin-modal-routing'
 import { Box, Flex } from '@rebass/grid'
 import styled from "styled-components"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { navigate } from "gatsby"
-
+import Icon from "@components/icons"
 
 
 const CloseLink = styled(Link)`
@@ -25,7 +23,7 @@ const ConditionalLayout = ({ children, ...rest }) => (
         <React.Fragment>
           
         <CloseLink to={closeTo}>
-          <FontAwesomeIcon size="lg" icon={faTimes} />
+          <Icon size="lg" icon={["fas", "times"]} />
         </CloseLink>
 
         <Flex py={5} onClick={() => navigate(`/`, { state: { noScroll: true }})}>
@@ -33,7 +31,6 @@ const ConditionalLayout = ({ children, ...rest }) => (
               {children}
           </Box>
         </Flex>
-
 
         </React.Fragment>
       ) : (

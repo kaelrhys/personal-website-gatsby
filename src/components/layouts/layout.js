@@ -14,11 +14,9 @@ import theme from '@styles/theme';
 import { ThemeProvider } from 'styled-components';
 import styled from "styled-components"
 
-
 const SiteWrapper = styled.main`
 background: rgba(255,255,255,0.5);
 `;
-
 
 
 const Layout = ({ children }) => (

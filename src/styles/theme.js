@@ -42,6 +42,12 @@ const theme = {
       fontFamily: theme.fonts.body,
       letterSpacing: -0.4,
     },
+    xs: {
+      fontSize: theme.fontSizes[1],
+      lineHeight: 1.4,
+      fontFamily: theme.fonts.body,
+      letterSpacing: -0.4,
+    },
     h1: {
       fontSize: theme.fontSizes[5],
       lineHeight: 1,
@@ -55,7 +61,14 @@ const theme = {
     h3: {
       fontSize: theme.fontSizes[3],
       lineHeight: 1,
-      fontFamily: theme.fonts.headings,
+      fontFamily: theme.fonts.body,
+      textTransform: 'none',
+    },
+    h4: {
+      fontSize: theme.fontSizes[2],
+      lineHeight: 1,
+      fontFamily: theme.fonts.body,
+      textTransform: 'none',
     },
     d1: {
       fontSize: theme.fontSizes[7],
