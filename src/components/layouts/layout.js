@@ -9,11 +9,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import { GlobalStyle } from '@styles/globalStyle';
-// import Navigation from "./navigation"
-import Footer from "./footer"
 
 import theme from '@styles/theme';
 import { ThemeProvider } from 'styled-components';
+import styled from "styled-components"
+
+
+const SiteWrapper = styled.main`
+background: rgba(255,255,255,0.5);
+`;
+
+
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
@@ -30,7 +36,7 @@ const Layout = ({ children }) => (
       render={data => (
         <>
             <GlobalStyle />
-            <main>{children}</main>
+            <SiteWrapper>{children}</SiteWrapper>
         </>
       )}
     />

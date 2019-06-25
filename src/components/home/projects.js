@@ -3,20 +3,17 @@ import styled from "styled-components"
 import { Box, Flex } from '@rebass/grid'
 import { Link } from 'gatsby'
 import Img from "gatsby-image"
+import { Text } from "@components/typography"
 
 const ProjectBox = styled(Box)`
   border: 3px solid ${props => props.theme.colors.navy};
   padding: 20px;
 `;
 
-
-
 const Projects = ({ projects }) => (
-    <div>
-        <Flex>
-            <Box my="10px"><h2>01. Projects</h2></Box>
-        </Flex>
-        <Flex mx={-10}>
+    <Box width={1}>
+        <Text as="h3" textStyle="h2" mb={16}>01. Projects</Text>
+        <Flex mx={-10} width={1}>
             {projects.nodes.map(project => (
                 <ProjectBox width={1/3} mx={10}>
                     <Link to={ "/project/" + project.uid } state={{ modal: true }}>
@@ -26,7 +23,7 @@ const Projects = ({ projects }) => (
                 </ProjectBox>
             ))}
         </Flex>
-    </div>
+    </Box>
 )
 
 export default Projects

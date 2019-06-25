@@ -51,10 +51,25 @@ module.exports = {
           shouldCloseOnEsc: true,
           style: {
             overlay: {
-              backgroundColor: `rgba(0, 0, 0, 0.75)`,
+              position: `fixed`,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: `rgba(0, 30, 82, 0.95)`,
             },
             content: {
-            }
+              position: `absolute`,
+              border: `none`,
+              background: `none`,
+              padding: 0,
+              top: 0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              overflow: `auto`,
+              WebkitOverflowScrolling: `touch`,
+            },
           },
         },
       }

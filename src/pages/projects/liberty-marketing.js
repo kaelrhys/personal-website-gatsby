@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Layout from "@components/layout"
+import Layout from "@components/layouts/layout"
 import SEO from "@components/seo"
 import styled from "styled-components"
 import { Flex, Box } from '@rebass/grid'

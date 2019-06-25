@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import { Flex, Box } from '@rebass/grid'
 import Img from "gatsby-image"
 
@@ -15,7 +14,7 @@ const ImageRow = (props) => {
     );
 
     return (
-        <Flex py={2}>
+        <Flex py={2} mx={-2}>
             { images }
         </Flex>
     )

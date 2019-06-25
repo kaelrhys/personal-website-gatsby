@@ -1,8 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
-import Layout from "@components/layout"
 import SEO from "@components/seo"
 import styled from "styled-components"
+
+import ConditionalLayout from "@components/layouts/modalLayout"
+
 
 const TypeformIframe = styled.iframe`
   display: block;
@@ -14,11 +15,11 @@ const TypeformIframe = styled.iframe`
 
 
 const ContactForm = () => (
-  <Layout>
+  <ConditionalLayout>
     <SEO title="Contact" />
     <TypeformIframe id="typeform-full" frameborder="0" src="https://kaelrhys.typeform.com/to/QhEZYl"></TypeformIframe> 
     <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
-  </Layout>
+  </ConditionalLayout>
 )
 
 export default ContactForm

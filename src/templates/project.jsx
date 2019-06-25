@@ -1,10 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "@components/layout"
+import ConditionalLayout from "@components/layouts/modalLayout"
 import SEO from "@components/seo"
-import Img from "gatsby-image"
 import ImageRow from "../components/imageRow"
+import styled from "styled-components"
+import { Box } from '@rebass/grid'
 
+const Intro = styled(Box)`
+  max-width: 700px;
+  margin: 0 auto;
+`
 
 const Project = ({ data: { prismicProject } }) => {
   const { data } = prismicProject
@@ -12,10 +17,13 @@ const Project = ({ data: { prismicProject } }) => {
   return (
     <React.Fragment>
       <SEO title="Post" />
-      <Layout>
-        <h1>{data.title.text}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.intro.html }} />
-        
+      <ConditionalLayout>
+
+        <Intro py={4}>
+          <h1>{data.title.text}</h1>
+          <div dangerouslySetInnerHTML={{ __html: data.intro.html }} />
+        </Intro>
+
         {
           data.body.map((slice, index) => {
             switch (slice.__typename) {
@@ -31,7 +39,7 @@ const Project = ({ data: { prismicProject } }) => {
 
       
       
-      </Layout>
+      </ConditionalLayout>
     </React.Fragment>
   )
 }
