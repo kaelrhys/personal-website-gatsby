@@ -18,6 +18,10 @@ const SiteWrapper = styled.main`
 background: rgba(255,255,255,0.5);
 `;
 
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>

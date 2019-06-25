@@ -41,7 +41,7 @@ const Hero = () => (
     <Box width={9/12}>
         <Text mb={12} as="h1" textStyle="d2">Hello, I'm Kael</Text>
         <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels professionally for 9+ years and I endeavour to create simple, unique, high converting user experiences. I take on all sizes of projects, from web design and build, to product, branding and system design. I’ve worked at creative agencies, startups, and large orgs' in the UK, and I’ve been lucky to have worked with some great minds. I’m now on a new path and have taken a jump down under, and I’m hoping to find new exciting opportunities.</IntroText>
-        <Text mt={24}><Link>See some projects i've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
+        <Text mt={24}><Link to="/#projects">See some projects i've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
     </Box>
     <Box width={3/12}>
       <IntroImage>

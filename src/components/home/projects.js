@@ -23,7 +23,7 @@ const ProjectBoxTitle = styled(Box)`
 const Projects = ({ projects }) => (
     <Box width={1}>
         <Text as="h3" textStyle="h2" mb={16}>01. Projects</Text>
-        <Flex mx={-10} width={1}>
+        <Flex id="projects" mx={-10} width={1}>
             {projects.nodes.map(project => (
                 <ProjectBox width={1/3} mx={10}>
                     <Link to={ "/project/" + project.uid } state={{ modal: true }}>
