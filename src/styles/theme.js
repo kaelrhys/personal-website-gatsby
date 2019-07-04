@@ -32,7 +32,6 @@ const theme = {
       lg: '992px',
       xl: '1100px',
     },
-    
   };
 
   theme.textStyles = {
@@ -61,7 +60,7 @@ const theme = {
     h3: {
       fontSize: theme.fontSizes[3],
       lineHeight: 1,
-      fontFamily: theme.fonts.body,
+      fontFamily: theme.fonts.headings,
       textTransform: 'none',
     },
     h4: {

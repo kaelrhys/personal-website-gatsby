@@ -1,16 +1,14 @@
-import React from 'react'
 import styled from 'styled-components'
 
 import {
-    space,
-    color,
-    textStyle,
-  } from 'styled-system'
+  space,
+  color,
+  textStyle,
+} from 'styled-system'
 
-  
+
 export const Text = styled('div')(
-    space,
-    color,
-    textStyle,
-  )
-  
+  space,
+  color,
+  textStyle,
+)

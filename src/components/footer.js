@@ -1,19 +1,31 @@
 import React from "react"
 import styled from "styled-components"
+import { Box } from '@rebass/grid'
+import { Text } from "@components/typography"
 
+const Container = styled(Box)`
+  max-width: 1100px;
+`
+Container.defaultProps = {
+  mx: 'auto'
+}
 
 const SiteFooter = styled.footer`
     padding: 20px; 
-    position: fixed;
     width: 100%;
     bottom: 0;
+    background: ${props => props.theme.colors.navy};
+    color: white;
 `;
 
 const Footer = () => (
    <SiteFooter>
-    © {new Date().getFullYear()}, Built with
-    {` `}
-    <a href="https://www.gatsbyjs.org">Gatsby</a>
+     <Container>
+       <Text textStyle="xs">
+        &copy; {new Date().getFullYear()}, Designed &amp; built by me using  {` `}<a href="https://www.gatsbyjs.org">Gatsby</a>
+       </Text>
+     </Container>
+
   </SiteFooter>
 )
 

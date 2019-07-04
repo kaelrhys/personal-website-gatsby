@@ -3,21 +3,18 @@ import { graphql } from "gatsby"
 import Layout from "@components/layouts/layout"
 import SEO from "@components/seo"
 import styled from "styled-components"
-
 import Hero from "@components/home/hero"
 import Projects from "@components/home/projects"
 import Contact from "@components/home/contact"
-
-
 import { Box, Flex } from '@rebass/grid'
 
 const Container = styled(Box)`
   max-width: 1100px;
 `
+
 Container.defaultProps = {
   mx: 'auto'
 }
-
 
 const IndexPage = ({ data: { projects } }) => {
 
@@ -52,10 +49,8 @@ export const pageQuery = graphql`
             alt
             localFile {
               childImageSharp {
-                fluid {
-                  tracedSVG
-                  aspectRatio
-                  src
+                fluid(maxWidth: 800, quality: 90) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
