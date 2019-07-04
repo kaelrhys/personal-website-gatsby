@@ -6,11 +6,11 @@ import Icon from "@components/icons"
 
 const Contact = () => (
     <Flex my={96}>
-        <Box width={2/3} mx={10}>
-            <Text as="h3" textStyle="h2">Yes i'd Love to Chat</Text>
-            <Text mt={8} mb={16}>If you are interested to work with me or maybe just say hi, please get in touch via any of the below, I’d love to hear more.</Text>
+        <Box width={[1, 1, 2/3]} mx={10}>
+            <Text as="h3" textStyle="h2">GET IN TOUCH!</Text>
+            <Text mt={8} mb={16}>If you are interested to work with me or wish to say hi, please get in touch via any of the below, I’d love to hear more.</Text>
             <ButtonLink to="/contact" state={{ modal: true }}>
-                Get in touch<Icon ml={2} icon={["fas", "arrow-right"]} />
+                Contact me<Icon ml={2} icon={["fas", "arrow-right"]} />
             </ButtonLink>
         </Box>
     </Flex>

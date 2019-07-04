@@ -45,6 +45,10 @@ export const pageQuery = graphql`
             html
             text
           }
+          client {
+            html
+            text
+          }
           featured_image {
             alt
             localFile {

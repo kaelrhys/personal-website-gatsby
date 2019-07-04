@@ -1,14 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import ConditionalLayout from "@components/layouts/modalLayout"
 import Layout from "@components/layouts/layout"
-
-import SEO from "@components/seo"
 import ImageRow from "../components/imageRow"
 import VideoEmbed from "../components/videoEmbed"
 import ImgCarousel from "../components/carousel"
 import IntroTable from "../components/table"
-
 import styled from "styled-components"
 import { Box } from '@rebass/grid'
 import {useSpring, animated} from 'react-spring'
@@ -27,7 +23,7 @@ const Project = ({ data: { prismicProject } }) => {
 
       <Layout>
 
-        <Intro py={4} style={textSpringProps}>
+        <Intro py={4} px={4} style={textSpringProps}>
 
           <Text mb={12} as="h3" textStyle="h3" >{data.client.text}</Text>
           <Text mb={12} as="h1" textStyle="h1" >{data.title.text}</Text>

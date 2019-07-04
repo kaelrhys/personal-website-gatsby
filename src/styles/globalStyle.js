@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import * as fontFamilies from './fonts';
 import { normalize } from 'styled-normalize';
 import bgImage from "../images/bg-pattern.gif";
+import { up } from 'styled-breakpoints';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -25,8 +26,17 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.navy};
     letter-spacing: ${props => props.theme.textStyles.body.letterSpacing}px;
     background-image: url(${bgImage});
-    background-size: 60%;    
     background-attachment: fixed;
+    background-size: 140%;
+
+    ${up('tablet')} {
+      background-size: 120%;
+    }
+
+    ${up('desktop')} {
+      background-size: 80%;
+    }
+
   }
   a {
     color: ${props => props.theme.colors.blue};

@@ -31,10 +31,19 @@ const SiteWrapper = styled.main`
 background: rgba(255,255,255,0.5);
 `;
 
+const Container = styled(Box)`
+  max-width: 1200x;
+`
+Container.defaultProps = {
+  mx: 'auto'
+}
+
+
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]')
 }
+
 
 const Layout = ({ children, ...rest }) => (
 
@@ -61,7 +70,7 @@ const Layout = ({ children, ...rest }) => (
                   <Icon size="lg" icon={["fas", "times"]} />
                 </CloseLink>
                 <Flex px={5} onClick={() => navigate(`/`, { state: { noScroll: true }})}>
-                  <Box onClick={e => e.stopPropagation()} bg="white" width={8/12} p={0} m="auto">
+                  <Box onClick={e => e.stopPropagation()} bg="white" width={[1, 1, 1, 10/12,]} p={0} m="auto">
                       {children}
                   </Box>
                 </Flex>
@@ -69,7 +78,11 @@ const Layout = ({ children, ...rest }) => (
             ) : (
               <React.Fragment>
                 <GlobalStyle />
-                <SiteWrapper>{children}</SiteWrapper>
+                <SiteWrapper>
+                  <Container px={4}>
+                    {children}  
+                  </Container>
+                </SiteWrapper>
                 <SiteFooter />
               </React.Fragment>
             )

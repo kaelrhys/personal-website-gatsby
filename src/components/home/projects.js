@@ -19,7 +19,6 @@ const ProjectBox = styled(animated(Link))`
   ${layout}
   border: 4px solid ${props => props.theme.colors.navy};
   position: relative;
-  display: flex;
   display: block;
 `;
 
@@ -38,25 +37,32 @@ const ProjectBoxContent = styled(Box)`
    }
 `;
 
+const Image = styled(Img)`
+   width: 100%;
+`
+
+
 const Projects = ({ projects }) => {
     const animateProps = useSpring({delay: 500, from: { opacity: 0 }, to: { opacity: 1 } })
     return (
-        <FullHeightFlex width={1} id="projects" alignItems='center'>
-        <Box width={1}>
-            <Text as="h3" textStyle="h2" mb={16}>01. Projects</Text>
-            <Flex  width={1}>
+          <FullHeightFlex id="projects" alignItems="center">
+            <Box width={1}>
+            <Text  as="h3" textStyle="h2" mb={16}>01. Projects</Text>
+            <Flex flexWrap="wrap" mx={-10}>
                 {projects.nodes.map(project => (
-                    <ProjectBox key={project.uid} width={1/3} mx={10} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
-                        <Img fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
+                  <Box key={project.uid} width={[ 1, 1/2, 1/3 ]} p={10} >
+                    <ProjectBox key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
+                        <Image fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
                         <ProjectBoxContent px={3} py={2}>
-                            <Text as="h3" textStyle="h4">GoCompare</Text>
+                            <Text as="h3" textStyle="h4">{project.data.client.text}</Text>
                             <Text textStyle="xs">{project.data.title.text}</Text>
                         </ProjectBoxContent>
                     </ProjectBox>
+                  </Box>
                 ))}
             </Flex>
-        </Box>
-        </FullHeightFlex>
+            </Box>
+          </FullHeightFlex>
     )}
 
 export default Projects

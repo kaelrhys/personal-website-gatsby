@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { Box, Flex } from '@rebass/grid'
-// import { up } from 'styled-breakpoints';
+import { up } from 'styled-breakpoints';
 import Image from "@components/image"
 import { Text } from "@components/typography"
 import { Link } from "gatsby";
 import Icon from "@components/icons"
 import {useSpring, animated} from 'react-spring'
+
 
 const FullHeightFlex = styled(Flex)`
   min-height: 100vh;
@@ -35,23 +36,40 @@ const IntroImage = styled.div`
   box-shadow: 20px 20px 0px 0px ${props => props.theme.colors.navy};
 `
 
+const IntroImageCol = styled(Box)`
+  display: none;
+  ${up('desktop')} {
+    display: block;
+  }
+`
+
+
 const Hero = () => {
   const textSpringProps = useSpring({delay: 200, opacity: 1, from: {opacity: 0}});
 
   return (
     <FullHeightFlex width={1} alignItems='center'>
-        <Box width={9/12} mx={10}>
+
+    <Flex width={1} flexWrap="wrap" mx={-10}>
+
+        <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
-              <Text mb={12} as="h1" textStyle="d2" >Hello, I'm Kael</Text>
-              <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels professionally for 9+ years and I endeavour to create simple, unique, high converting user experiences. I take on all sizes of projects, from web design and build, to product, branding and system design. I’ve worked at creative agencies, startups, and large orgs' in the UK, and I’ve been lucky to have worked with some great minds. I’m now on a new path and have taken a jump down under, and I’m hoping to find new exciting opportunities.</IntroText>
+              <Text mb={12} as="h1" textStyle="h1" >Hello, I'm Kael</Text>
+              <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels 
+              professionally for 9+ years and I endeavour to create innovative, unique, high converting 
+              user experiences. I take on all sizes of projects, from web design and development, to product, 
+              branding and system design. I’ve worked for creative agencies, start-up and a few of 
+              the worlds leading companies. <Highlight>I'm now looking for opportunities in Australia.</Highlight> 
+              </IntroText>
               <Text mt={24}><Link to="/#projects">See some projects i've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
             </AnimatedText>
         </Box>
-        <Box width={3/12} mx={10}>
+        <IntroImageCol width={[3/12]} px={10}>
           <IntroImage>
               <Image />
           </IntroImage>
-        </Box>
+        </IntroImageCol>
+      </Flex>
     </FullHeightFlex>
   )
   

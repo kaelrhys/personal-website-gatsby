@@ -11,7 +11,6 @@ Container.defaultProps = {
 }
 
 const SiteFooter = styled.footer`
-    padding: 20px; 
     width: 100%;
     bottom: 0;
     background: ${props => props.theme.colors.navy};
@@ -21,11 +20,10 @@ const SiteFooter = styled.footer`
 const Footer = () => (
    <SiteFooter>
      <Container>
-       <Text textStyle="xs">
+       <Text p={2} textStyle="xs">
         &copy; {new Date().getFullYear()}, Designed &amp; built by me using  {` `}<a href="https://www.gatsbyjs.org">Gatsby</a>
        </Text>
      </Container>
-
   </SiteFooter>
 )
 
