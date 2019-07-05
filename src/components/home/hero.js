@@ -58,10 +58,10 @@ const Hero = () => {
               <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels 
               professionally for 9+ years and I endeavour to create innovative, unique, high converting 
               user experiences. I take on all sizes of projects, from web design and development, to product, 
-              branding and system design. I’ve worked for creative agencies, start-up and a few of 
-              the worlds leading companies. <Highlight>I'm now looking for opportunities in Australia.</Highlight> 
+              branding and system design. I’ve led the design and development for projects at creative agencies, 
+              start-ups and large orgs across the globe. <Highlight>I'm now looking for new opportunities in Australia.</Highlight> 
               </IntroText>
-              <Text mt={24}><Link to="/#projects">See some projects i've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
+              <Text mt={24}><Link to="/#projects">See some projects I've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
             </AnimatedText>
         </Box>
         <IntroImageCol width={[3/12]} px={10}>
