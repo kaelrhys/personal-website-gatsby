@@ -12,6 +12,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-143350029-1",
+      },
+    },
+    {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `kael-rhys-website`,
