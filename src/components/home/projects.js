@@ -47,7 +47,7 @@ const Projects = ({ projects }) => {
     return (
           <FullHeightFlex id="projects" alignItems="center">
             <Box width={1}>
-            <Text  as="h3" textStyle="h2" mb={16}>01. Projects</Text>
+            <Text  as="h3" textStyle="h2" mb={16}>Projects</Text>
             <Flex flexWrap="wrap" mx={-10}>
                 {projects.nodes.map(project => (
                   <Box key={project.uid} width={[ 1, 1/2, 1/3 ]} p={10} >
