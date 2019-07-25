@@ -55,10 +55,8 @@ const Hero = () => {
         <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
               <Text mb={12} as="h1" textStyle="h1" >Hello, I'm Kael</Text>
-              <IntroText>I’m a <Highlight>designer who codes</Highlight>. I’ve been pushing pixels 
-              professionally for 9+ years and I endeavour to create innovative, unique, high converting 
-              user experiences. I take on all sizes of projects, from web design and development, to product, 
-              branding and system design. I’ve led the design and development for projects at creative agencies, 
+              <IntroText><Highlight>I design and build websites and apps.</Highlight>. I have 9+ years of experience and I endeavour to create innovative, high-converting, human-centric
+              user experiences. I take on all sizes of projects, from web/app design and development, to product and system design. I’ve led the design and development for projects at creative agencies, 
               start-ups and large orgs across the globe. <Highlight>I'm now looking for new opportunities in Australia.</Highlight> 
               </IntroText>
               <Text mt={24}><Link to="/#projects">See some projects I've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
