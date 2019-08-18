@@ -8,7 +8,6 @@ import { Link } from "gatsby";
 import Icon from "@components/icons"
 import {useSpring, animated} from 'react-spring'
 
-
 const FullHeightFlex = styled(Flex)`
   min-height: 100vh;
 `
@@ -44,7 +43,7 @@ const IntroImageCol = styled(Box)`
 `
 
 
-const Hero = () => {
+const Hero = ({title, intro}) => {
   const textSpringProps = useSpring({delay: 200, opacity: 1, from: {opacity: 0}});
 
   return (
@@ -54,11 +53,8 @@ const Hero = () => {
 
         <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
-              <Text mb={12} as="h1" textStyle="h1" >Hello, I'm Kael</Text>
-              <IntroText><Highlight>I design and build websites and apps.</Highlight>. I have 9+ years of experience and I endeavour to create innovative, high-converting, human-centric
-              user experiences. I take on all sizes of projects, from web/app design and development, to product and system design. I’ve led the design and development for projects at creative agencies, 
-              start-ups and large orgs across the globe. <Highlight>I'm now looking for new opportunities in Australia.</Highlight> 
-              </IntroText>
+              <Text mb={12} as="h1" textStyle="h1" >{title.text}</Text>
+              <IntroText dangerouslySetInnerHTML={{ __html: intro.html }} />
               <Text mt={24}><Link to="/#projects">See some projects I've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
             </AnimatedText>
         </Box>

@@ -25,8 +25,8 @@ const Project = ({ data: { prismicProject } }) => {
 
         <Intro py={4} px={4} style={textSpringProps}>
 
-          <Text mb={12} as="h3" textStyle="h3" >{data.client.text}</Text>
-          <Text mb={12} as="h1" textStyle="h1" >{data.title.text}</Text>
+          <Text mb={12} as="h3" textStyle="h4" >{data.client.text}</Text>
+          <Text mb={12} as="h1" textStyle="h2" >{data.title.text}</Text>
           <Text dangerouslySetInnerHTML={{ __html: data.intro.html }} />
           <IntroTable columns={ data.table } />
 

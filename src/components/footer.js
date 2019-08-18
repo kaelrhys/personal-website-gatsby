@@ -21,7 +21,7 @@ const Footer = () => (
    <SiteFooter>
      <Container>
        <Text p={2} textStyle="xs">
-        &copy; {new Date().getFullYear()}, Designed &amp; built by me using  {` `}<a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a href="https://github.com/kaelrhys/personal-website-gatsby">Designed &amp; built by me.</a>
        </Text>
      </Container>
   </SiteFooter>

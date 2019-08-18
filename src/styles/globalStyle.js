@@ -9,15 +9,7 @@ import { up } from 'styled-breakpoints';
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
   
-  @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700');
-  @font-face {
-    font-family: 'Blackout';
-    src: url(${fontFamilies.BlackoutWOFF2}) format('woff2'),
-         url(${fontFamilies.BlackoutWOFF}) format('woff');
-         url(${fontFamilies.BlackoutTTF}) format('truetype');
-    font-weight: 800;
-    font-style: normal;
-  }
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i,800&display=swap');
 
   body {
     font-family: ${props => props.theme.textStyles.body.fontFamily};
@@ -40,11 +32,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   a {
     color: ${props => props.theme.colors.blue};
+    font-weight: bold;
   }
 
   h1, h2, h3 {
     font-family: ${props => props.theme.fonts.headings};
-    text-transform: Uppercase;
     font-weight: 800;
     margin: 0;
   }

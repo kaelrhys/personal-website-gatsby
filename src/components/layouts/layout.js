@@ -29,10 +29,12 @@ const CloseLink = styled(Link)`
 
 const SiteWrapper = styled.main`
 background: rgba(255,255,255,0.5);
+width: 100%;
 `;
 
 const Container = styled(Box)`
-  max-width: 1200x;
+  width: 100%;
+  max-width: 1100px;
 `
 Container.defaultProps = {
   mx: 'auto'

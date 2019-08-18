@@ -31,6 +31,7 @@ const ProjectBoxContent = styled(Box)`
   width: 100%;
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-weight: 500;
 
   ${ProjectBox}:hover & {
     opacity: 1;
@@ -47,13 +48,13 @@ const Projects = ({ projects }) => {
     return (
           <FullHeightFlex id="projects" alignItems="center">
             <Box width={1}>
-            <Text  as="h3" textStyle="h2" mb={16}>Projects</Text>
+            <Text  as="h2" textStyle="h2" mb={16}>Projects</Text>
             <Flex flexWrap="wrap" mx={-10}>
                 {projects.nodes.map(project => (
                   <Box key={project.uid} width={[ 1, 1/2, 1/3 ]} p={10} >
                     <ProjectBox key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
                         <Image fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
-                        <ProjectBoxContent px={3} py={2}>
+                        <ProjectBoxContent px={3} py={3}>
                             <Text as="h3" textStyle="h4">{project.data.client.text}</Text>
                             <Text textStyle="xs">{project.data.title.text}</Text>
                         </ProjectBoxContent>

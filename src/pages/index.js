@@ -2,32 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "@components/layouts/layout"
 import SEO from "@components/seo"
-import styled from "styled-components"
 import Hero from "@components/home/hero"
 import Projects from "@components/home/projects"
 import Contact from "@components/home/contact"
-import { Box, Flex } from '@rebass/grid'
 
-const Container = styled(Box)`
-  max-width: 1100px;
-`
 
-Container.defaultProps = {
-  mx: 'auto'
-}
-
-const IndexPage = ({ data: { projects } }) => {
+const IndexPage = ({ data: { projects, homeContent } }) => {
 
   return (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Flex>
-      <Container>
-        <Hero />
-        <Projects projects={projects} />
-        <Contact />
-      </Container>
-    </Flex>
+    <Hero title={homeContent.data.intro_title} intro={homeContent.data.intro} />
+    <Projects projects={projects} />
+    <Contact title={homeContent.data.contact_title} content={homeContent.data.contact_text} />
   </Layout>
   )
 }
@@ -36,6 +23,26 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query { 
+    homeContent: prismicHomepage {
+      data {
+        intro {
+          html
+          text
+        }
+        intro_title {
+          html
+          text
+        }
+        contact_text {
+          html
+          text
+        }
+        contact_title {
+          html
+          text
+        }
+      }
+    }
     projects: allPrismicProject {
       nodes {
         id
