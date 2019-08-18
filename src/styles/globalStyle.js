@@ -1,6 +1,5 @@
 
 import { createGlobalStyle } from 'styled-components';
-import * as fontFamilies from './fonts';
 import { normalize } from 'styled-normalize';
 import bgImage from "../images/bg-pattern.gif";
 import { up } from 'styled-breakpoints';

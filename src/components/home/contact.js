@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Box, Flex } from '@rebass/grid'
 import { Text } from "@components/typography"
 import ButtonLink from "@components/button";
@@ -35,5 +36,13 @@ const Contact = ({title, content}) => (
 
 export default Contact
 
+Contact.propTypes = {
+    content: PropTypes.object,
+    title: PropTypes.object,
+}
 
+Contact.defaultProps = {
+    content: null,
+    title: null,
+};
 

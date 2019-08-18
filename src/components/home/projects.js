@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Box, Flex } from '@rebass/grid'
 import { Link } from 'gatsby'
@@ -9,6 +10,7 @@ import {
     space,
     layout,
   } from 'styled-system'
+
 
 const FullHeightFlex = styled(Flex)`
   min-height: 80vh;
@@ -67,6 +69,14 @@ const Projects = ({ projects }) => {
     )}
 
 export default Projects
+
+Projects.propTypes = {
+  projects: PropTypes.object,
+}
+
+Projects.defaultProps = {
+  projects: null,
+};
 
 
 

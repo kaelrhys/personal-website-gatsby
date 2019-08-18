@@ -5,21 +5,36 @@ import SEO from "@components/seo"
 import Hero from "@components/home/hero"
 import Projects from "@components/home/projects"
 import Contact from "@components/home/contact"
+import PropTypes from 'prop-types';
 
 
 const IndexPage = ({ data: { projects, homeContent } }) => {
-
   return (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Hero title={homeContent.data.intro_title} intro={homeContent.data.intro} />
-    <Projects projects={projects} />
-    <Contact title={homeContent.data.contact_title} content={homeContent.data.contact_text} />
-  </Layout>
+    <Layout>
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <Hero title={homeContent.data.intro_title} intro={homeContent.data.intro} />
+      <Projects projects={projects} />
+      <Contact title={homeContent.data.contact_title} content={homeContent.data.contact_text} />
+    </Layout>
   )
 }
 
 export default IndexPage
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    projects: PropTypes.object,
+    homeContent: PropTypes.object,
+  })
+}
+
+IndexPage.defaultProps = {
+  data: PropTypes.shape({
+    projects: null,
+    homeContent: PropTypes.object,
+  }),
+};
+
 
 export const pageQuery = graphql`
   query { 

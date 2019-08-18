@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Box, Flex } from '@rebass/grid'
 import { up } from 'styled-breakpoints';
@@ -18,14 +19,6 @@ const IntroText = styled(Text)`
 
 const AnimatedText = styled(animated.div)`
   margin-top: 0;
-`
-
-const Highlight = styled.mark`
-  background: ${props => props.theme.colors.blue};
-  color: #fff;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-  font-style: italic;
 `
 
 const IntroImage = styled.div`
@@ -48,14 +41,14 @@ const Hero = ({title, intro}) => {
 
   return (
     <FullHeightFlex width={1} alignItems='center'>
-
-    <Flex width={1} flexWrap="wrap" mx={-10}>
-
+      <Flex width={1} flexWrap="wrap" mx={-10}>
         <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
               <Text mb={12} as="h1" textStyle="h1" >{title.text}</Text>
               <IntroText dangerouslySetInnerHTML={{ __html: intro.html }} />
-              <Text mt={24}><Link to="/#projects">See some projects I've worked on<Icon ml={2} icon={["fas", "arrow-down"]}/></Link></Text>
+              <Text mt={24}>
+                <Link to="/#projects">View projects<Icon ml={2} icon={['fas', 'arrow-down']}/></Link>
+              </Text>
             </AnimatedText>
         </Box>
         <IntroImageCol width={[3/12]} px={10}>
@@ -71,5 +64,13 @@ const Hero = ({title, intro}) => {
 }
 export default Hero
 
+Hero.propTypes = {
+  title: PropTypes.string,
+  intro: PropTypes.object,
+}
 
+Hero.defaultProps = {
+  title: null,
+  intro: null,
+};
 

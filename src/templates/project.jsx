@@ -9,67 +9,70 @@ import styled from "styled-components"
 import { Box } from '@rebass/grid'
 import {useSpring, animated} from 'react-spring'
 import { Text } from "@components/typography"
+import PropTypes from 'prop-types';
+
 
 const Intro = styled(animated(Box))`
   max-width: 700px;
   margin: 0 auto;
 `
 
-const Project = ({ data: { prismicProject } }) => {
-  const { data } = prismicProject
+const Project = ({ data }) => {
   const textSpringProps = useSpring({delay: 300, opacity: 1, from: {opacity: 0}});
   return (
-    <React.Fragment>
-
-      <Layout>
-
-        <Intro py={4} px={4} style={textSpringProps}>
-
-          <Text mb={12} as="h3" textStyle="h4" >{data.client.text}</Text>
-          <Text mb={12} as="h1" textStyle="h2" >{data.title.text}</Text>
-          <Text dangerouslySetInnerHTML={{ __html: data.intro.html }} />
-          <IntroTable columns={ data.table } />
-
-        </Intro>
-
-        {
-          data.body.map((slice, index) => {
-            switch (slice.__typename) {
-              case ('PrismicProjectBodyImageGallery'):
-                return <ImageRow key={slice.id} images={slice.items} />
-              case ('PrismicProjectBodyCarousel'):
-                  return <ImgCarousel key={slice.id} images={slice.items} />
-              case ('PrismicProjectBodyVideo'):
-                return <VideoEmbed key={slice.id} bgColor={slice.primary.background_color} video={slice.primary.video_embed} />
-              default:
-                return null;
-            }
-          })
-        }
-
-      
-      
-      </Layout>
-    </React.Fragment>
+    <Layout>
+      <Intro py={4} px={4} style={textSpringProps}>
+        <Text mb={12} as="h3" textStyle="h4" >{data.projects.client.text}</Text>
+        <Text mb={12} as="h1" textStyle="h2" >{data.projects.title.text}</Text>
+        <Text dangerouslySetInnerHTML={{ __html: data.projects.intro.html }} />
+        <IntroTable columns={ data.projects.table } />
+      </Intro>
+      {
+        data.projects.body.map((slice) => {
+          switch (slice.__typename) {
+            case ('PrismicProjectBodyImageGallery'):
+              return <ImageRow key={slice.id} images={slice.items} />
+            case ('PrismicProjectBodyCarousel'):
+                return <ImgCarousel key={slice.id} images={slice.items} />
+            case ('PrismicProjectBodyVideo'):
+              return <VideoEmbed key={slice.id} bgColor={slice.primary.background_color} video={slice.primary.video_embed} />
+            default:
+              return null;
+          }
+        })
+      }
+    </Layout>
   )
 }
 
 export default Project
 
+
+Project.propTypes = {
+  data: PropTypes.shape({
+    projects: PropTypes.object,
+  })
+}
+
+Project.defaultProps = {
+  data: PropTypes.shape({
+    projects: null,
+  }),
+};
+
+
 export const pageQuery = graphql`
   query ProjectBySlug($uid: String!) {
-    prismicProject(uid: { eq: $uid }) {
+    projects: prismicProject(uid: { eq: $uid }) {
       uid
       data {
         client {
-          html
           text
         }
         title {
           text
         }
         intro {
-          html
           text
         }
         table {

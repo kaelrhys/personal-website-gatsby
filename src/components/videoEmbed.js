@@ -1,6 +1,8 @@
 import React from "react"
 import { Flex, Box } from '@rebass/grid'
 import styled from "styled-components"
+import PropTypes from 'prop-types';
+
 
 const VideoIframeContainer = styled(Box)`
     width: 100%;
@@ -22,12 +24,10 @@ const VideoIframe = styled(Box)`
 `
 
 const VideoEmbed = (props) => {
-
     // Calculates padding for aspect ratio. Read more: https://danieljones.design/css-aspect-ratio-calculator
     const videoHeight = parseInt(props.video.height)
     const videoWidth = parseInt(props.video.width)
     const paddingBottom = `${videoHeight/(videoWidth/100)}%`
-
     return (
         <Flex py={80} alignItems="center" justifyContent="center" bg={props.bgColor} >
             <VideoIframeContainer>
@@ -37,5 +37,15 @@ const VideoEmbed = (props) => {
         </Flex>
     )
 }
+
+VideoEmbed.propTypes = {
+    video: PropTypes.object,
+    bgColor: PropTypes.string,
+}
+
+VideoEmbed.defaultProps = {
+    video: PropTypes.object,
+    bgColor: PropTypes.string,
+};
 
 export default VideoEmbed

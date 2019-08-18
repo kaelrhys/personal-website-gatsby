@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
@@ -18,6 +11,7 @@ import { Box, Flex } from '@rebass/grid'
 import { navigate } from "gatsby"
 import Icon from "@components/icons"
 import { Link } from "gatsby";
+
 
 const CloseLink = styled(Link)`
   position: fixed;
@@ -40,16 +34,13 @@ Container.defaultProps = {
   mx: 'auto'
 }
 
-
 if (typeof window !== "undefined") {
-  // eslint-disable-next-line global-require
+/* eslint-disable */
   require("smooth-scroll")('a[href*="#"]')
+/* eslint-enable */
 }
 
-
-const Layout = ({ children, ...rest }) => (
-
-
+const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <StaticQuery
       query={graphql`
@@ -61,7 +52,7 @@ const Layout = ({ children, ...rest }) => (
           }
         }
       `}
-      render={data => (
+      render={(
         <>
           <ModalRoutingContext.Consumer>
             {({ modal, closeTo }) => (
