@@ -13,13 +13,7 @@ import Icon from "@components/icons"
 import { Link } from "gatsby";
 
 
-const CloseLink = styled(Link)`
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  color: #fff;
-  font-size: 20px;
-`
+
 
 const SiteWrapper = styled.main`
 background: rgba(255,255,255,0.5);
@@ -34,61 +28,99 @@ Container.defaultProps = {
   mx: 'auto'
 }
 
+const ModalContent = styled(Box)`
+  min-height: 100vh;
+`
+
+const ModalCloseLink = styled(Link)`
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 20px;
+`
+
+
 if (typeof window !== "undefined") {
 /* eslint-disable */
   require("smooth-scroll")('a[href*="#"]')
 /* eslint-enable */
 }
 
-const Layout = ({ children }) => (
+
+const PureLayout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              title
-            }
-          }
-        }
-      `}
-      render={(
-        <>
-          <ModalRoutingContext.Consumer>
-            {({ modal, closeTo }) => (
-              modal ? (
-              <React.Fragment>
-                <GlobalStyle />
-                <CloseLink to={closeTo} state={{noScroll:true}}>
-                  <Icon size="lg" icon={["fas", "times"]} />
-                </CloseLink>
-                <Flex px={5} onClick={() => navigate(`/`, { state: { noScroll: true }})}>
-                  <Box onClick={e => e.stopPropagation()} bg="white" width={[1, 1, 1, 10/12,]} p={0} m="auto">
-                      {children}
-                  </Box>
-                </Flex>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <GlobalStyle />
-                <SiteWrapper>
-                  <Container px={4}>
-                    {children}  
-                  </Container>
-                </SiteWrapper>
-                <SiteFooter />
-              </React.Fragment>
-            )
-          )}
-          </ModalRoutingContext.Consumer>
-        </>
-      )}
-    />
+   <React.Fragment>
+    <GlobalStyle />
+    <SiteWrapper>
+      <Container px={4}>
+        {children}
+      </Container>
+    </SiteWrapper>
+    <SiteFooter />
+    </React.Fragment>
   </ThemeProvider>
 )
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+const ModalLayout = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <React.Fragment>
+      <GlobalStyle />
+      <ModalCloseLink state={{noScroll:true}}>
+        <Icon size="lg" icon={["fas", "times"]} />
+      </ModalCloseLink>
+      <Flex px={[0,0,5]} onClick={() => navigate(`/`, { state: { noScroll: true }})}>
+        <ModalContent onClick={e => e.stopPropagation()} bg="white"  width={[1, 1, 1, 10/12,]} p={0} m="auto">
+            {children}
+        </ModalContent>
+      </Flex>
+    </React.Fragment>
+  </ThemeProvider>
+)
+
+class Layout extends React.Component {
+  render() {
+    return (
+      <StaticQuery
+        query={graphql`
+          query SiteTitleQuery {
+            site {
+              siteMetadata {
+                title
+              }
+            }
+          }
+        `}
+        render={data => (
+          <ModalRoutingContext.Consumer>
+            {({ modal }) => ( modal ? (
+              <ModalLayout {...this.props} data={data}>
+                {this.props.children}
+              </ModalLayout>
+            ) : (
+              <PureLayout {...this.props} data={data}>
+                {this.props.children}
+              </PureLayout>
+            ))}
+
+          </ModalRoutingContext.Consumer>
+        )}
+      />
+    )
+  }
 }
 
 export default Layout
+
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+}
+
+PureLayout.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+}
+
+ModalLayout.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
+}

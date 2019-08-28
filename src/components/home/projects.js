@@ -48,24 +48,24 @@ const Image = styled(Img)`
 const Projects = ({ projects }) => {
     const animateProps = useSpring({delay: 500, from: { opacity: 0 }, to: { opacity: 1 } })
     return (
-          <FullHeightFlex id="projects" alignItems="center">
-            <Box width={1}>
-            <Text  as="h2" textStyle="h2" mb={16}>Projects</Text>
-            <Flex flexWrap="wrap" mx={-10}>
-                {projects.nodes.map(project => (
-                  <Box key={project.uid} width={[ 1, 1/2, 1/3 ]} p={10} >
-                    <ProjectBox key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
-                        <Image fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
-                        <ProjectBoxContent px={3} py={3}>
-                            <Text as="h3" textStyle="h4">{project.data.client.text}</Text>
-                            <Text textStyle="xs">{project.data.title.text}</Text>
-                        </ProjectBoxContent>
-                    </ProjectBox>
-                  </Box>
-                ))}
-            </Flex>
-            </Box>
-          </FullHeightFlex>
+      <FullHeightFlex id="projects" alignItems="center">
+        <Box width={1}>
+          <Text  as="h2" textStyle="h2" mb={16}>Projects</Text>
+          <Flex flexWrap="wrap" mx={-10}>
+              {projects.nodes.map(project => (
+                <Box key={project.uid} width={[ 1, 1/2, 1/3 ]} p={10} >
+                  <ProjectBox key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
+                      <Image fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
+                      <ProjectBoxContent px={3} py={3}>
+                          <Text as="h3" textStyle="h4">{project.data.client.text}</Text>
+                          <Text textStyle="xs">{project.data.title.text}</Text>
+                      </ProjectBoxContent>
+                  </ProjectBox>
+                </Box>
+              ))}
+          </Flex>
+        </Box>
+      </FullHeightFlex>
     )}
 
 export default Projects

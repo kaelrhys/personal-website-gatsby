@@ -37,7 +37,7 @@ const IntroImageCol = styled(Box)`
 
 
 const Hero = ({title, intro}) => {
-  const textSpringProps = useSpring({delay: 200, opacity: 1, from: {opacity: 0}});
+  const textSpringProps = useSpring({delay: 0, opacity: 1, from: {opacity: 0}});
 
   return (
     <FullHeightFlex width={1} alignItems='center'>

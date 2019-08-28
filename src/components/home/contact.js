@@ -14,7 +14,7 @@ const SocialLink = styled.a`
 
 const Contact = ({title, content}) => (
     <Flex py={96}>
-        <Box width={[1, 1, 2/3]}>
+        <Box width={[1, 1, 6/12]}>
             <Text as="h2" textStyle="h2">{title.text}</Text>
             <Text mt={8} mb={16}  dangerouslySetInnerHTML={{ __html: content.html }} />
 
