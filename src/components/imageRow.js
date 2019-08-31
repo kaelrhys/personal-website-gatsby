@@ -20,7 +20,7 @@ const ImageRow = (props) => {
 }
 
 ImageRow.propTypes = {
-    images: PropTypes.object,
+    images: PropTypes.array,
 }
 
 ImageRow.defaultProps = {

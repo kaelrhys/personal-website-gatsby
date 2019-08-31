@@ -1,18 +1,24 @@
-import React from "react"
-import { Flex, Box } from '@rebass/grid'
+import React from 'react';
+import { Flex, Box } from '@rebass/grid';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
+const Column = styled(Box)`
+    ul {
+        margin-top: 4px;
+    }
+`
 
 const IntroTable = (props) => {
     const noOfCols = props.columns.length
     const columns = props.columns.map((column, key) =>
-        <Box key={key} width={1/noOfCols} px={2}>
+        <Column key={key} width={[1, 1/noOfCols]} px={2}>
             <h3>{ column.column_title.text }</h3>
             <div dangerouslySetInnerHTML={{ __html: column.column_text.html }} />
-        </Box>
+        </Column>
     );
     return (
-        <Flex py={2} mx={-2}>
+        <Flex flexWrap="wrap" py={2} mx={-2}>
             { columns }
         </Flex>
     )
@@ -20,7 +26,7 @@ const IntroTable = (props) => {
 
 
 IntroTable.propTypes = {
-    columns: PropTypes.object,
+    columns: PropTypes.array,
 }
 
 IntroTable.defaultProps = {

@@ -19,7 +19,7 @@ const SiteFooter = styled.footer`
 
 const Footer = () => (
    <SiteFooter>
-     <Container>
+     <Container px={[4, 5]}>
        <Text p={2} textStyle="xs">
         <a href="https://github.com/kaelrhys/personal-website-gatsby">Designed &amp; built by me.</a>
        </Text>

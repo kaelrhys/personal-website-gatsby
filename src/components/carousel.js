@@ -23,7 +23,7 @@ export default ImgCarousel
 
 
 ImgCarousel.propTypes = {
-    images: PropTypes.object,
+    images: PropTypes.array,
 }
 
 ImgCarousel.defaultProps = {

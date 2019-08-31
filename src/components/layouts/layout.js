@@ -13,11 +13,10 @@ import Icon from "@components/icons"
 import { Link } from "gatsby";
 
 
-
-
 const SiteWrapper = styled.main`
-background: rgba(255,255,255,0.5);
-width: 100%;
+  background: rgba(255,255,255,0.5);
+  width: 100%;
+  min-width: 400px;
 `;
 
 const Container = styled(Box)`
@@ -40,7 +39,6 @@ const ModalCloseLink = styled(Link)`
   font-size: 20px;
 `
 
-
 if (typeof window !== "undefined") {
 /* eslint-disable */
   require("smooth-scroll")('a[href*="#"]')
@@ -53,7 +51,7 @@ const PureLayout = ({ children }) => (
    <React.Fragment>
     <GlobalStyle />
     <SiteWrapper>
-      <Container px={4}>
+      <Container px={[4, 5]}>
         {children}
       </Container>
     </SiteWrapper>
@@ -66,7 +64,7 @@ const ModalLayout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <React.Fragment>
       <GlobalStyle />
-      <ModalCloseLink state={{noScroll:true}}>
+      <ModalCloseLink to="/#projects" state={{noScroll:true}}>
         <Icon size="lg" icon={["fas", "times"]} />
       </ModalCloseLink>
       <Flex px={[0,0,5]} onClick={() => navigate(`/`, { state: { noScroll: true }})}>

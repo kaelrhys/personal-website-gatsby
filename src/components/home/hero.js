@@ -10,7 +10,12 @@ import Icon from "@components/icons"
 import {useSpring, animated} from 'react-spring'
 
 const FullHeightFlex = styled(Flex)`
-  min-height: 100vh;
+
+  ${up('tablet')} {
+    min-height: 80vh;
+    padding-bottom: 10vh;
+    padding-top: 10vh;
+  }
 `
 
 const IntroText = styled(Text)`
@@ -21,30 +26,44 @@ const AnimatedText = styled(animated.div)`
   margin-top: 0;
 `
 
-const IntroImage = styled.div`
-  border: 4px solid ${props => props.theme.colors.navy};
-  webkit-box-shadow: 20px 20px 0px 0px ${props => props.theme.colors.navy};
-  -moz-box-shadow: 20px 20px 0px 0px ${props => props.theme.colors.navy};
-  box-shadow: 20px 20px 0px 0px ${props => props.theme.colors.navy};
-`
-
-const IntroImageCol = styled(Box)`
-  display: none;
+const IntroFlex = styled(Flex)`
+  flex-direction: column-reverse;
   ${up('desktop')} {
-    display: block;
+    flex-direction: row;
   }
 `
 
 
-const Hero = ({title, intro}) => {
+const IntroImage = styled.div`
+  border: 4px solid ${props => props.theme.colors.navy};
+  box-shadow: 10px 10px 0px 0px ${props => props.theme.colors.navy};
+  margin-bottom: 48px;
+
+
+`
+
+const IntroImageCol = styled(Box)`
+  display: block;
+
+`
+const Break = styled.br`
+  @media (min-width: 460px) {
+    display: none;
+  }
+`
+
+
+
+
+const Hero = ({intro}) => {
   const textSpringProps = useSpring({delay: 0, opacity: 1, from: {opacity: 0}});
 
   return (
-    <FullHeightFlex width={1} alignItems='center'>
-      <Flex width={1} flexWrap="wrap" mx={-10}>
+    <FullHeightFlex width={1} pt={[4,0]} pb={[6,6,0]} alignItems='center'>
+      <IntroFlex width={1} flexWrap="wrap" mx={-10}>
         <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
-              <Text mb={12} as="h1" textStyle="h1" >{title.text}</Text>
+              <Text mb={12} as="h1" textStyle="h1" >Hello,<Break /> I&apos;m Kael</Text>
               <IntroText dangerouslySetInnerHTML={{ __html: intro.html }} />
               <Text mt={24}>
                 <Link to="/#projects">View projects<Icon ml={2} icon={['fas', 'arrow-down']}/></Link>
@@ -56,7 +75,7 @@ const Hero = ({title, intro}) => {
               <Image />
           </IntroImage>
         </IntroImageCol>
-      </Flex>
+      </IntroFlex>
     </FullHeightFlex>
   )
   
@@ -65,12 +84,10 @@ const Hero = ({title, intro}) => {
 export default Hero
 
 Hero.propTypes = {
-  title: PropTypes.string,
   intro: PropTypes.object,
 }
 
 Hero.defaultProps = {
-  title: null,
   intro: null,
 };
 

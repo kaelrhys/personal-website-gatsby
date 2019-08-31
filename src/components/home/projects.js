@@ -10,6 +10,7 @@ import {
     space,
     layout,
   } from 'styled-system'
+import Icon from "@components/icons"
 
 
 const FullHeightFlex = styled(Flex)`
@@ -35,9 +36,14 @@ const ProjectBoxContent = styled(Box)`
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   font-weight: 500;
 
+  ${Icon} {
+    align-self: center;
+  }
+
   ${ProjectBox}:hover & {
     opacity: 1;
-   }
+  }
+
 `;
 
 const Image = styled(Img)`
@@ -57,8 +63,13 @@ const Projects = ({ projects }) => {
                   <ProjectBox key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
                       <Image fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
                       <ProjectBoxContent px={3} py={3}>
-                          <Text as="h3" textStyle="h4">{project.data.client.text}</Text>
-                          <Text textStyle="xs">{project.data.title.text}</Text>
+                          <Flex flexDirection="row">
+                            <Box flexGrow="1">
+                              <Text as="h3" textStyle="h4">{project.data.client.text}</Text>
+                              <Text textStyle="xs">{project.data.title.text}</Text>
+                            </Box>
+                            <Icon ml="auto" icon={["fas", "arrow-right"]} />
+                          </Flex>
                       </ProjectBoxContent>
                   </ProjectBox>
                 </Box>

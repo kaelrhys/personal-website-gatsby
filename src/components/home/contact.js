@@ -12,12 +12,17 @@ const SocialLink = styled.a`
     margin: 0 2px;
 `
 
+const ContactText = styled(Text)`
+    p {
+        margin: 0;
+    }
+`
+
 const Contact = ({title, content}) => (
     <Flex py={96}>
-        <Box width={[1, 1, 6/12]}>
+        <Box width={[1, 8/12, 6/12]}>
             <Text as="h2" textStyle="h2">{title.text}</Text>
-            <Text mt={8} mb={16}  dangerouslySetInnerHTML={{ __html: content.html }} />
-
+            <ContactText mt={8} mb={16}  dangerouslySetInnerHTML={{ __html: content.html }} />
             <Flex alignItems="center">
                 <ButtonLink to="/contact" state={{ modal: true }}>
                     Contact<Icon ml={2} icon={["fas", "arrow-right"]} />
@@ -29,7 +34,6 @@ const Contact = ({title, content}) => (
                     <SocialLink href="https://github.com/kaelrhys/"><Icon ml={2} icon={["fab", "github"]} /></SocialLink>
                 </Box>
             </Flex>
-
         </Box>
     </Flex>
 )

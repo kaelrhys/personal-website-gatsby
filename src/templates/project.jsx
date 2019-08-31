@@ -22,7 +22,7 @@ const Project = ({ data: { prismicProject } }) => {
   return (
     <Layout>
       <Intro pb={4} pt={2} px={4} style={textSpringProps}>
-        <Link to="/#projects" ><Icon ml={2} icon={['fas', 'arrow-left']}/> Back to projects</Link>
+        <Link to="/#projects"><Icon ml={2} icon={['fas', 'arrow-left']}/> Back to projects</Link>
         <Text mb={12} mt={4} as="h3" textStyle="h4" >{prismicProject.data.client.text}</Text>
         <Text mb={12} as="h1" textStyle="h2" >{prismicProject.data.title.text}</Text>
         <Text dangerouslySetInnerHTML={{ __html: prismicProject.data.intro.html }} />

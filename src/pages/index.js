@@ -12,7 +12,7 @@ const IndexPage = ({ data: { projects, homeContent } }) => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Hero title={homeContent.data.intro_title} intro={homeContent.data.intro} />
+      <Hero intro={homeContent.data.intro} />
       <Projects projects={projects} />
       <Contact title={homeContent.data.contact_title} content={homeContent.data.contact_text} />
     </Layout>

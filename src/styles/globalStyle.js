@@ -18,14 +18,14 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: ${props => props.theme.textStyles.body.letterSpacing}px;
     background-image: url(${bgImage});
     background-attachment: fixed;
-    background-size: 140%;
+    background-size: 160%;
 
     ${up('tablet')} {
       background-size: 120%;
     }
 
     ${up('desktop')} {
-      background-size: 80%;
+      background-size: 100%;
     }
 
   }
