@@ -64,7 +64,7 @@ const ModalLayout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <React.Fragment>
       <GlobalStyle />
-      <ModalCloseLink to="/#projects" state={{noScroll:true}}>
+      <ModalCloseLink aria-label="Close this project"  to="/#projects" state={{noScroll:true}}>
         <Icon size="lg" icon={["fas", "times"]} />
       </ModalCloseLink>
       <Flex px={[0,0,5]} onClick={() => navigate(`/`, { state: { noScroll: true }})}>

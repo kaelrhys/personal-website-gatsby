@@ -60,7 +60,7 @@ const Projects = ({ projects }) => {
           <Flex flexWrap="wrap" mx={-10}>
               {projects.nodes.map(project => (
                 <Box key={project.uid} width={[ 1, 1/2, 1/3 ]} p={10} >
-                  <ProjectBox key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
+                  <ProjectBox aria-label={`View project for ${project.data.client.text}`} key={project.uid} style={animateProps} to={ "/project/" + project.uid } state={{ modal: true }}>
                       <Image fluid={project.data.featured_image.localFile.childImageSharp.fluid} /> 
                       <ProjectBoxContent px={3} py={3}>
                           <Flex flexDirection="row">

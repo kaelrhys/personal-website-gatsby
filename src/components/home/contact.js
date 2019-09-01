@@ -24,7 +24,7 @@ const Contact = ({title, content}) => (
             <Text as="h2" textStyle="h2">{title.text}</Text>
             <ContactText mt={8} mb={16}  dangerouslySetInnerHTML={{ __html: content.html }} />
             <Flex alignItems="center">
-                <ButtonLink to="/contact" state={{ modal: true }}>
+                <ButtonLink aria-label="Contact" to="/contact" state={{ modal: true }}>
                     Contact<Icon ml={2} icon={["fas", "arrow-right"]} />
                 </ButtonLink>
                 <Box ml={3}>

@@ -33,13 +33,10 @@ const IntroFlex = styled(Flex)`
   }
 `
 
-
 const IntroImage = styled.div`
   border: 4px solid ${props => props.theme.colors.navy};
   box-shadow: 10px 10px 0px 0px ${props => props.theme.colors.navy};
   margin-bottom: 48px;
-
-
 `
 
 const IntroImageCol = styled(Box)`
@@ -53,8 +50,6 @@ const Break = styled.br`
 `
 
 
-
-
 const Hero = ({intro}) => {
   const textSpringProps = useSpring({delay: 0, opacity: 1, from: {opacity: 0}});
 
@@ -66,7 +61,7 @@ const Hero = ({intro}) => {
               <Text mb={12} as="h1" textStyle="h1" >Hello,<Break /> I&apos;m Kael</Text>
               <IntroText dangerouslySetInnerHTML={{ __html: intro.html }} />
               <Text mt={24}>
-                <Link to="/#projects">View projects<Icon ml={2} icon={['fas', 'arrow-down']}/></Link>
+                <Link aria-label="View projects" to="/#projects">View projects <Icon ml={2} icon={['fas', 'arrow-down']}/></Link>
               </Text>
             </AnimatedText>
         </Box>
