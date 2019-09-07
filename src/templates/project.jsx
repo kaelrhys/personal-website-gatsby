@@ -75,6 +75,7 @@ export const pageQuery = graphql`
         }
         intro {
           text
+          html
         }
         table {
           column_title {

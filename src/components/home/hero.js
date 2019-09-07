@@ -37,6 +37,10 @@ const IntroImage = styled.div`
   border: 4px solid ${props => props.theme.colors.navy};
   box-shadow: 10px 10px 0px 0px ${props => props.theme.colors.navy};
   margin-bottom: 48px;
+  max-width: 100px;
+  ${up('tablet')} {
+    max-width: 100%;
+  }
 `
 
 const IntroImageCol = styled(Box)`
@@ -54,7 +58,7 @@ const Hero = ({intro}) => {
   const textSpringProps = useSpring({delay: 0, opacity: 1, from: {opacity: 0}});
 
   return (
-    <FullHeightFlex width={1} pt={[4,0]} pb={[6,6,0]} alignItems='center'>
+    <FullHeightFlex width={1} pt={[4]} pb={[6,6,0]} alignItems='center'>
       <IntroFlex width={1} flexWrap="wrap" mx={-10}>
         <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
@@ -65,7 +69,7 @@ const Hero = ({intro}) => {
               </Text>
             </AnimatedText>
         </Box>
-        <IntroImageCol width={[3/12]} px={10}>
+        <IntroImageCol width={[1, 3/12]} px={10}>
           <IntroImage>
               <Image />
           </IntroImage>

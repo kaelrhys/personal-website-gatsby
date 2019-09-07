@@ -16,13 +16,13 @@ import { Link } from "gatsby";
 const SiteWrapper = styled.main`
   background: rgba(255,255,255,0.5);
   width: 100%;
-  min-width: 400px;
 `;
 
 const Container = styled(Box)`
   width: 100%;
   max-width: 1100px;
 `
+
 Container.defaultProps = {
   mx: 'auto'
 }

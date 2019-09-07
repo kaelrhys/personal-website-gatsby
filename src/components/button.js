@@ -8,6 +8,7 @@ const ButtonLink = styled(Link)`
     padding: 12px 18px;
     border: 3px solid ${props => props.theme.colors.navy};
     font-weight: bold;
+    white-space: nowrap;
 `;
  
 export default ButtonLink

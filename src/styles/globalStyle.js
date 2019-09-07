@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
   }
+  
   a {
     color: ${props => props.theme.colors.blue};
     font-weight: bold;
