@@ -62,8 +62,8 @@ const Hero = ({intro}) => {
       <IntroFlex width={1} flexWrap="wrap" mx={-10}>
         <Box width={[ 1, 1, 9/12 ]} px={10} >
             <AnimatedText style={textSpringProps}>
-              <Text mb={12} as="h1" textStyle="h1" >Hello,<Break /> I&apos;m Kael</Text>
-              <IntroText dangerouslySetInnerHTML={{ __html: intro.html }} />
+              <Text mb={12} as="h1" textStyle="h1" >Hello,<Break /> I&apos;m Kael –</Text>
+              <IntroText textStyle="body" dangerouslySetInnerHTML={{ __html: intro.html }} />
               <Text mt={24}>
                 <Link aria-label="View projects" to="/#projects">View projects <Icon ml={2} icon={['fas', 'arrow-down']}/></Link>
               </Text>

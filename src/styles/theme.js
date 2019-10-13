@@ -24,7 +24,7 @@ const theme = {
         "'Poppins', -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif",
     },
   
-    fontSizes: [13, 15, 17, 25, 33, 49, 65, 97, 129],
+    fontSizes: [13, 15, 17, 19, 25, 33, 49, 65, 97, 129],
 
     breakpoints: ['40em', '52em', '64em', '80em'],
 
@@ -34,7 +34,7 @@ const theme = {
   
   theme.textStyles = {
     body: {
-      fontSize: theme.fontSizes[2],
+      fontSize: theme.fontSizes[3],
       lineHeight: 1.6,
       fontFamily: theme.fonts.body,
       letterSpacing: 0,
@@ -46,27 +46,27 @@ const theme = {
       letterSpacing: 0,
     },
     h1: {
-      fontSize: theme.fontSizes[5],
+      fontSize: theme.fontSizes[6],
       lineHeight: 1,
       fontFamily: theme.fonts.headings,
       letterSpacing: -1,
     },
     h2: {
-      fontSize: theme.fontSizes[4],
+      fontSize: theme.fontSizes[5],
       lineHeight: 1,
       fontFamily: theme.fonts.headings,
       letterSpacing: -0.6,
 
     },
     h3: {
-      fontSize: theme.fontSizes[3],
+      fontSize: theme.fontSizes[4],
       lineHeight: 1,
       fontFamily: theme.fonts.headings,
       textTransform: 'none',
       letterSpacing: -0.4,
     },
     h4: {
-      fontSize: theme.fontSizes[2],
+      fontSize: theme.fontSizes[3],
       lineHeight: 1,
       fontFamily: theme.fonts.body,
       textTransform: 'none',
